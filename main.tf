@@ -49,7 +49,7 @@ resource "google_monitoring_alert_policy" "dlq_alert" {
     display_name = "${title(var.dlq_subscription_name)} Hedwig DLQ is non-empty${local.title_suffix}"
 
     condition_threshold {
-      threshold_value = "1" // Number of messages
+      threshold_value = "0" // Number of messages
       comparison      = "COMPARISON_GT"
       duration        = "60s" // Seconds
 
