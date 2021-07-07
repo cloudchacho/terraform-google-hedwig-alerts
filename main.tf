@@ -15,7 +15,7 @@ resource "google_monitoring_alert_policy" "high_message_alert" {
     display_name = "${title(var.subscription_name)} Hedwig queue message count too high${local.title_suffix}"
 
     condition_threshold {
-      threshold_value = var.queue_alarm_high_message_count_threshold // Number of messages
+      threshold_value = coalesce(var.queue_alarm_high_message_count_threshold, 5000) // Number of messages
       comparison      = "COMPARISON_GT"
       duration        = "300s" // Seconds
 
