@@ -1,10 +1,5 @@
-variable "subscription_name" {
-  description = "Subscription name (e.g. dev-myapp-user-created-v1)"
-}
-
-variable "dlq_subscription_name" {
-  description = "DLQ subscription name (e.g. dev-myapp-dlq)"
-  default     = ""
+variable "queue" {
+  description = "Application queue name (e.g. dev-myapp); unique across your infra"
 }
 
 variable "labels" {

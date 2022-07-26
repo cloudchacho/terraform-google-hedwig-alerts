@@ -21,8 +21,8 @@ module "sub-dev-myapp-dev-user-updated" {
 }
 
 module "alerts-dev-myapp-dev-user-updated" {
-  source       = "cloudchacho/hedwig-alerts/google"
-  subscription = "${module.sub-dev-myapp-dev-user-updated.subscription_name}"
+  source = "cloudchacho/hedwig-alerts/google"
+  queue  = "dev-myapp"
 }
 ```
 
