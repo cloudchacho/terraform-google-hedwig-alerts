@@ -64,7 +64,7 @@ resource "google_monitoring_alert_policy" "no_activity_alert" {
     }
   }
 
-  notification_channels = var.queue_high_message_count_notification_channels
+  notification_channels = var.queue_no_activity_notification_channels
 
   user_labels = var.labels
 }

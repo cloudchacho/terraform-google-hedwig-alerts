@@ -24,6 +24,12 @@ variable "queue_high_message_count_notification_channels" {
   default     = []
 }
 
+variable "queue_no_activity_notification_channels" {
+  description = "Stackdriver Notification Channels for main queue alarm for no activity (required if alerting is on)"
+  type        = list(string)
+  default     = []
+}
+
 variable "dlq_high_message_count_notification_channels" {
   description = "Stackdriver Notification Channels for DLQ alarm for high message count (required if alerting is on)"
   type        = list(string)
