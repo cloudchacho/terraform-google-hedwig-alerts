@@ -22,9 +22,10 @@ resource "google_monitoring_alert_policy" "high_message_alert" {
       filter = "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\" resource.type=\"pubsub_subscription\" (resource.label.\"subscription_id\"=monitoring.regex.full_match(\"hedwig-${var.queue}-.*\") AND resource.labels.\"subscription_id\"!=\"hedwig-${var.queue}-dlq\")${local.filter_suffix}"
 
       aggregations {
-        alignment_period     = "60s"
-        cross_series_reducer = "REDUCE_NONE"
-        per_series_aligner   = "ALIGN_MEAN"
+        alignment_period = "60s"
+        # can't include this because Terraform tries to always apply this change
+        # cross_series_reducer = "REDUCE_NONE"
+        per_series_aligner = "ALIGN_MEAN"
       }
 
       trigger {
@@ -53,9 +54,10 @@ resource "google_monitoring_alert_policy" "no_activity_alert" {
       filter = "metric.type=\"pubsub.googleapis.com/subscription/streaming_pull_message_operation_count\" resource.type=\"pubsub_subscription\" (resource.label.\"subscription_id\"=monitoring.regex.full_match(\"hedwig-${var.queue}-.*\") AND resource.labels.\"subscription_id\"!=\"hedwig-${var.queue}-dlq\")${local.filter_suffix}"
 
       aggregations {
-        alignment_period     = "60s"
-        cross_series_reducer = "REDUCE_NONE"
-        per_series_aligner   = "ALIGN_MEAN"
+        alignment_period = "60s"
+        # can't include this because Terraform tries to always apply this change
+        # cross_series_reducer = "REDUCE_NONE"
+        per_series_aligner = "ALIGN_MEAN"
       }
 
       trigger {
